@@ -98,7 +98,6 @@ class MuseScoreAPI(object):
             if not method in (name.upper() for name in methods):
                 raise Exception('"%s" is not valid endpoint for resource "%s"' % (method, resource))
             url = self._prepare_url(REST_SUBDOMAIN, resource)
-            print url
             timeout = REST_SOCKET_TIMEOUT
         else:
             raise Exception('"%s" is not valid endpoint' % resource)
