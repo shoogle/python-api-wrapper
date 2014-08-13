@@ -30,14 +30,31 @@ REST_SOCKET_TIMEOUT = 5
 
 REST_ENDPOINTS = {
         # resource:              ( method )
-        'me':                    ('GET',),  
-        'user/:PARAM':           ('GET',),              # ID 
-        'user/:PARAM/score':     ('GET',),              # ID 
+        'me':                    ('GET',),
+        'me/sets':               ('GET',),
+        'me/scores':             ('GET',),
+        'me/favorites':          ('GET',),
+        
+        'user/:PARAM':           ('GET', 'POST'),  # ID 
+        'user/:PARAM/score':     ('GET',),          # ID 
+        'user/:PARAM/favorites': ('GET',),          # ID 
+        'user/:PARAM/followers': ('GET',),          # ID 
+        'user/:PARAM/following': ('GET',),          # ID 
+        'user/:PARAM/groups':    ('GET',),          # ID
+        'user/:PARAM/follow':    ('GET',),
 
         'score':                 ('GET', 'POST'),  
-        'score/:PARAM':          ('GET', 'DELETE'),     # ID  
-        'score/:PARAM/time':     ('GET'),               # ID 
-        'score/:PARAM/space':    ('GET',),              # ID 
+        'score/:PARAM':          ('GET', 'DELETE'), # ID  
+        'score/:PARAM/time':     ('GET',),   # ID 
+        'score/:PARAM/space':    ('GET',),
+        'score/:PARAM/favorite': ('GET',),   # ID           
+        'score/:PARAM/comments': ('GET',),   # ID
+
+        'set/:PARAM':             ('GET', 'DELETE'),     # ID 
+
+        'groups':                 ('GET',),  
+        'groups/:PARAM':          ('GET', 'DELETE'),    # ID  
+        'groups/:PARAM/score':    ('GET',),              # ID 
 
         'resolve':               ('GET',)  
 }
