@@ -13,11 +13,11 @@ import logging
 httplib.HTTPConnection.debuglevel = 1
 
 # You must initialize logging, otherwise you'll not see debug output.
-logging.basicConfig() 
-logging.getLogger().setLevel(logging.DEBUG)
-requests_log = logging.getLogger("requests.packages.urllib3")
-requests_log.setLevel(logging.DEBUG)
-requests_log.propagate = True
+#logging.basicConfig() 
+#logging.getLogger().setLevel(logging.DEBUG)
+#requests_log = logging.getLogger("requests.packages.urllib3")
+#requests_log.setLevel(logging.DEBUG)
+#requests_log.propagate = True
 
 try:
     # python 3
@@ -27,11 +27,11 @@ except:
     sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 
 
-#api = MuseScoreAPI("credentials.json")
-api = MuseScoreAPI(client_key="musichackday")
+api = MuseScoreAPI("credentials.json")
+#api = MuseScoreAPI(client_key="")
 
 
-TEST_NUMBER = 2
+TEST_NUMBER = 0
 
 try:
     if TEST_NUMBER == 0:
