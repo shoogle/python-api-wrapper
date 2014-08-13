@@ -1,15 +1,18 @@
 from requests_oauthlib import OAuth1Session
 import webbrowser
-
+import sys
 
 request_token_url = 'http://api.musescore.com/oauth/request_token'
 base_authorization_url = 'http://musescore.com/oauth/authorize'
 access_token_url = 'http://api.musescore.com/oauth/access_token'
-client_key = 'musichackday'
-client_secret='musichackday2013'
+client_key = 'YOUR_CLIENT_KEY'
+client_secret='YOUR_CLIENT_SECRET'
 resource_owner_key=''
 resource_owner_secret=''
 
+if client_key == 'YOUR_CLIENT_KEY' or client_secret == 'YOUR_CLIENT_SECRET':
+    print "Please change your client key and secret in connect.py header"
+    sys.exit(0)
 
 #obtain a request token
 oauth = OAuth1Session(client_key, client_secret=client_secret)
