@@ -36,12 +36,13 @@ REST_ENDPOINTS = {
         'me/favorites':          ('GET',),
         
         'user/:PARAM':           ('GET', 'POST'),  # ID 
-        'user/:PARAM/score':     ('GET',),          # ID 
-        'user/:PARAM/favorites': ('GET',),          # ID 
-        'user/:PARAM/followers': ('GET',),          # ID 
-        'user/:PARAM/following': ('GET',),          # ID 
-        'user/:PARAM/groups':    ('GET',),          # ID
-        'user/:PARAM/follow':    ('GET',),
+        'user/:PARAM/score':     ('GET',),         # ID 
+        'user/:PARAM/favorites': ('GET',),         # ID 
+        'user/:PARAM/followers': ('GET',),         # ID 
+        'user/:PARAM/following': ('GET',),         # ID 
+        'user/:PARAM/groups':    ('GET',),         # ID
+        'user/:PARAM/follow':    ('GET',),         # ID
+        'user/:PARAM/sets':      ('GET',),         # ID
 
         'score':                 ('GET', 'POST'),  
         'score/:PARAM':          ('GET', 'DELETE'), # ID  

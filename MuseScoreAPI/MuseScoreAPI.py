@@ -54,12 +54,13 @@ class MuseScoreAPI(object):
             raise Exception('At least a client key is needed')
 
 
-    def _prepare_url(self, subdomain, path):
-        return '%s://%s.%s/%s/%s.json' % (PROTOCOL,
+    def _prepare_url(self, subdomain, path, format):
+        return '%s://%s.%s/%s/%s.%s' % (PROTOCOL,
                                           subdomain,
                                           DOMAIN,
                                           VERSION,
-                                          path)
+                                          path,
+                                          format)
 
     def _get_endpoint(self, resource):
         """Substitute any parameters in the resource path with :PARAM."""
@@ -73,7 +74,7 @@ class MuseScoreAPI(object):
         else:
             return (resource, resource)
 
-    def request(self, resource, params=None, method='GET', files=None):
+    def request(self, resource, params=None, method='GET', files=None, format='json'):
         """Request a MuseScore REST API resource.
 
         :param resource: A valid MuseScore endpoint (ex. "score")
@@ -97,10 +98,10 @@ class MuseScoreAPI(object):
             methods = REST_ENDPOINTS[endpoint]
             if not method in (name.upper() for name in methods):
                 raise Exception('"%s" is not valid endpoint for resource "%s"' % (method, resource))
-            url = self._prepare_url(REST_SUBDOMAIN, resource)
+            url = self._prepare_url(REST_SUBDOMAIN, resource, format)
             timeout = REST_SOCKET_TIMEOUT
         else:
-            raise Exception('"%s" is not valid endpoint' % resource)
+            raise Exception('"%s" is not a valid endpoint' % resource)
         r = session.request(
             method,
             url,
