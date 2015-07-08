@@ -2,9 +2,12 @@ from requests_oauthlib import OAuth1Session
 import webbrowser
 import sys
 
-request_token_url = 'http://api.musescore.com/oauth/request_token'
-base_authorization_url = 'http://musescore.com/oauth/authorize'
-access_token_url = 'http://api.musescore.com/oauth/access_token'
+hostname = "musescore.com"
+
+request_token_url = 'http://api.' + hostname+'/oauth/request_token'
+base_authorization_url = 'http://' + hostname+'/oauth/authorize'
+access_token_url = 'http://api.' + hostname+'/oauth/access_token'
+
 client_key = 'YOUR_CLIENT_KEY'
 client_secret='YOUR_CLIENT_SECRET'
 resource_owner_key=''
