@@ -34,9 +34,12 @@ REST_ENDPOINTS = {
         'me/sets':               ('GET',),
         'me/scores':             ('GET',),
         'me/favorites':          ('GET',),
+        'me/activities':         ('GET',),
+        'me/history':            ('GET',),
         
         'user/:PARAM':           ('GET', 'POST'),  # ID 
-        'user/:PARAM/score':     ('GET',),         # ID 
+        'user/:PARAM/score':     ('GET',),         # ID
+        'user/:PARAM/scores':    ('GET',),         # ID
         'user/:PARAM/favorites': ('GET',),         # ID 
         'user/:PARAM/followers': ('GET',),         # ID 
         'user/:PARAM/following': ('GET',),         # ID 
@@ -44,12 +47,15 @@ REST_ENDPOINTS = {
         'user/:PARAM/follow':    ('GET',),         # ID
         'user/:PARAM/sets':      ('GET',),         # ID
 
+
         'score':                 ('GET', 'POST'),  
         'score/:PARAM':          ('GET', 'DELETE'), # ID  
         'score/:PARAM/time':     ('GET',),   # ID 
         'score/:PARAM/space':    ('GET',),
         'score/:PARAM/favorite': ('GET',),   # ID           
         'score/:PARAM/comments': ('GET',),   # ID
+        'score/:PARAM/comment':  ('POST',),   # ID
+        'score/:PARAM/update':   ('POST',),   # ID
 
         'set/:PARAM':             ('GET', 'DELETE'),     # ID 
 
@@ -57,5 +63,5 @@ REST_ENDPOINTS = {
         'groups/:PARAM':          ('GET', 'DELETE'),    # ID  
         'groups/:PARAM/score':    ('GET',),              # ID 
 
-        'resolve':               ('GET',)  
+        'resolve':                ('GET',)
 }

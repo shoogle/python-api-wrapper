@@ -19,6 +19,9 @@ class TestSequenceFunctions(unittest.TestCase):
 
         r = self.api.request('me/favorites')
         self.assertEqual(r.status_code, 200)
+
+        r = self.api.request('me/favorites')
+        self.assertEqual(r.status_code, 200)
     
     def test_me_xml(self):        
         r = self.api.request('me/sets', format='xml')
@@ -26,7 +29,6 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<sets'))
 
         r = self.api.request('me/scores', format='xml')
-        print r.text
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
 
@@ -34,11 +36,19 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
 
+        r = self.api.request('me/activities', format='xml')
+        self.assertEqual(r.status_code, 200)
+        print r.text
+        self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
+
     def test_user_read(self):
         r = self.api.request('user/:3')
         self.assertEqual(r.status_code, 200)
 
         r = self.api.request('user/:3/score')
+        self.assertEqual(r.status_code, 200)
+
+        r = self.api.request('user/:3/scores')
         self.assertEqual(r.status_code, 200)
         
         r = self.api.request('user/:3/favorites')
@@ -58,6 +68,10 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_user_read_xml(self):
         r = self.api.request('user/:3/score', format='xml')
+        self.assertEqual(r.status_code, 200)
+        self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
+
+        r = self.api.request('user/:3/scores', format='xml')
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
         
