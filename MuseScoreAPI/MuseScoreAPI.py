@@ -41,7 +41,7 @@ class MuseScoreAPI(object):
         self.proxies = {'https': proxy_url} if proxy_url else None
         auth_type='oAuth1'
         if credFile and os.path.isfile(credFile):
-            with open("credentials.json") as json_file:
+            with open(credFile) as json_file:
                 cred = json.load(json_file)
             self.auth = OAuth1(cred["client_key"],
                           client_secret=cred["client_secret"],
