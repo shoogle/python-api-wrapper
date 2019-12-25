@@ -13,7 +13,7 @@ import logging
 httplib.HTTPConnection.debuglevel = 1
 
 # You must initialize logging, otherwise you'll not see debug output.
-#logging.basicConfig() 
+#logging.basicConfig()
 #logging.getLogger().setLevel(logging.DEBUG)
 #requests_log = logging.getLogger("requests.packages.urllib3")
 #requests_log.setLevel(logging.DEBUG)
@@ -57,7 +57,7 @@ try:
         print(r.text)
         r = api.request('user/:5/groups')
         print(r.text)
-    
+
     if TEST_NUMBER == 3:
         r = api.request('score')
         #print(r.text)
@@ -83,11 +83,11 @@ try:
     if TEST_NUMBER == 8:
         r = api.request('score/:147837', method="DELETE")
         print(r.text)
-    
+
     if TEST_NUMBER == 9:
         files = {'score_data': ('test.mscz', open('test.mscz', 'rb'), 'application/octet-stream'),
-            "title": ('',' test'), 
-            "description": ('', 'description'), 
+            "title": ('',' test'),
+            "description": ('', 'description'),
             "private" : ('', '1')
         }
         r = api.request('score',  method="POST", files=files)

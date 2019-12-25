@@ -10,7 +10,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_me(self):
         r = self.api.request('me')
         self.assertEqual(r.status_code, 200)
-        
+
         r = self.api.request('me/sets')
         self.assertEqual(r.status_code, 200)
 
@@ -22,8 +22,8 @@ class TestSequenceFunctions(unittest.TestCase):
 
         r = self.api.request('me/favorites')
         self.assertEqual(r.status_code, 200)
-    
-    def test_me_xml(self):        
+
+    def test_me_xml(self):
         r = self.api.request('me/sets', format='xml')
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<sets'))
@@ -50,7 +50,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         r = self.api.request('user/:3/scores')
         self.assertEqual(r.status_code, 200)
-        
+
         r = self.api.request('user/:3/favorites')
         self.assertEqual(r.status_code, 200)
 
@@ -74,7 +74,7 @@ class TestSequenceFunctions(unittest.TestCase):
         r = self.api.request('user/:3/scores', format='xml')
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
-        
+
         r = self.api.request('user/:3/favorites', format='xml')
         self.assertEqual(r.status_code, 200)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
@@ -98,7 +98,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_score_read(self):
         r = self.api.request('score')
         self.assertEqual(r.status_code, 200)
-    
+
         r = self.api.request('score', {"text": "Promenade"})
         self.assertEqual(r.status_code, 200)
 
@@ -117,8 +117,8 @@ class TestSequenceFunctions(unittest.TestCase):
 
 #    def test_score_create_delete(self):
 #        files = {'score_data': ('test.mscz', open('test.mscz', 'rb'), 'application/octet-stream'),
-#            "title": ('',' test'), 
-#            "description": ('', 'description'), 
+#            "title": ('',' test'),
+#            "description": ('', 'description'),
 #            "private" : ('', '1')
 #        }
 #        r = self.api.request('score',  method="POST", files=files)

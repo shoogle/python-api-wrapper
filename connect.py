@@ -44,8 +44,8 @@ print(oauth_tokens)
 resource_owner_key = oauth_tokens.get('oauth_token')
 resource_owner_secret = oauth_tokens.get('oauth_token_secret')
 
-cred = {"client_key": client_key, "client_secret": client_secret, 
-        "resource_owner_key": resource_owner_key, 
+cred = {"client_key": client_key, "client_secret": client_secret,
+        "resource_owner_key": resource_owner_key,
         "resource_owner_secret": resource_owner_secret}
 
 import json

@@ -35,5 +35,3 @@ Or you can post a score
     from MuseScoreAPI import MuseScoreAPI
     api = MuseScoreAPI("credentials.json")
     r = api.postScore("Title", "test.mscz", description="Description", license=MuseScoreAPI.LICENSE_CC_ZERO)
-
-

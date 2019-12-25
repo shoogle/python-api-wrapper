@@ -15,7 +15,7 @@ class MuseScoreAPI(object):
 
     LICENSE_ALL_RIGHT_RESERVED = "all-rights-reserved"
     LICENSE_CC_BY = "cc-by"
-    LICENSE_CC_BY_SA = "cc-by-sa" 
+    LICENSE_CC_BY_SA = "cc-by-sa"
     LICENSE_CC_BY_ND = "cc-by-nd"
     LICENSE_CC_BY_NC = "cc-by-nc"
     LICENSE_CC_BY_NC_SA = "cc-by-nc-sa"
@@ -131,8 +131,8 @@ class MuseScoreAPI(object):
             raise Exception('"%s" is not an MSCZ file' % file)
         filename = os.path.basename(file)
         files = {'score_data': (filename, open(file, 'rb'), 'application/octet-stream'),
-            "title": ('', title), 
-            "description": ('', description), 
+            "title": ('', title),
+            "description": ('', description),
             "private" : ('', str(private)),
             "tags" : ('', tags),
             "license" : ('', license),
@@ -191,4 +191,3 @@ class RestIterator(object):
         """Return a score as a JSON object."""
         for item in self.results:
             yield item
-            
