@@ -62,7 +62,7 @@ try:
         r = api.request('score')
         #print(r.text)
         for score in r:
-            print score
+            print(score)
 
     if TEST_NUMBER == 4:
         r = api.request('score', {"text": "Promenade"})

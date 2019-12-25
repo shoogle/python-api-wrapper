@@ -22,11 +22,11 @@ resource_owner_key = ''
 resource_owner_secret = ''
 
 if client_key == '' or client_secret == '':
-    print "Please change your client key and secret in connectXAuth.py header"
+    print("Please change your client key and secret in connectXAuth.py header")
     sys.exit(0)
 
 if username == 'USER_NAME' or password == 'USER_PASSWORD':
-    print "Please change username and password in connectXAuth.py header"
+    print("Please change username and password in connectXAuth.py header")
     sys.exit(0)
 
 client = Client(client_key, client_secret=client_secret, signature_type=SIGNATURE_TYPE_BODY)

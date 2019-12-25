@@ -38,7 +38,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         r = self.api.request('me/activities', format='xml')
         self.assertEqual(r.status_code, 200)
-        print r.text
+        print(r.text)
         self.assertTrue(r.text.startswith('<?xml version="1.0" encoding="utf-8"?>\n<scores'))
 
     def test_user_read(self):

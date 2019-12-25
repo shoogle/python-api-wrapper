@@ -14,13 +14,13 @@ resource_owner_key=''
 resource_owner_secret=''
 
 if client_key == 'YOUR_CLIENT_KEY' or client_secret == 'YOUR_CLIENT_SECRET':
-    print "Please change your client key and secret in connect.py header"
+    print("Please change your client key and secret in connect.py header")
     sys.exit(0)
 
 #obtain a request token
 oauth = OAuth1Session(client_key, client_secret=client_secret)
 fetch_response = oauth.fetch_request_token(request_token_url)
-print fetch_response
+print(fetch_response)
 
 resource_owner_key = fetch_response.get('oauth_token')
 resource_owner_secret = fetch_response.get('oauth_token_secret')
@@ -28,7 +28,7 @@ resource_owner_secret = fetch_response.get('oauth_token_secret')
 
 # Obtain authorization
 authorization_url = oauth.authorization_url(base_authorization_url)
-print 'Please go here and authorize,', authorization_url
+print('Please go here and authorize,', authorization_url)
 webbrowser.open(authorization_url)
 redirect_response = raw_input('Press any key when authorized')
 
@@ -39,7 +39,7 @@ oauth = OAuth1Session(client_key,
                           resource_owner_key=resource_owner_key,
                           resource_owner_secret=resource_owner_secret)
 oauth_tokens = oauth.fetch_access_token(access_token_url)
-print oauth_tokens
+print(oauth_tokens)
 
 resource_owner_key = oauth_tokens.get('oauth_token')
 resource_owner_secret = oauth_tokens.get('oauth_token_secret')
